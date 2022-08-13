@@ -21,7 +21,7 @@ func viewAbilityScore(s stats.AbilityScore) string {
 			0.49,
 			s.Kind().String(),
 			fmt.Sprintf("%d", s.Base()),
-			s.Modifier().String(),
+			s.AbilityModifier().String(),
 		),
 	)
 }

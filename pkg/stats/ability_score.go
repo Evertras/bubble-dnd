@@ -27,7 +27,7 @@ func (s AbilityScore) Base() int {
 	return s.base
 }
 
-func (s AbilityScore) Modifier() Modifier {
+func (s AbilityScore) AbilityModifier() AbilityModifier {
 	var modifier int
 
 	if s.base >= 10 {
@@ -36,5 +36,5 @@ func (s AbilityScore) Modifier() Modifier {
 		modifier = (s.base - 11) / 2
 	}
 
-	return Modifier(modifier)
+	return AbilityModifier(modifier)
 }

@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestModifierString(t *testing.T) {
+func TestAbilityModifierString(t *testing.T) {
 	tests := []struct {
-		modifier Modifier
+		modifier AbilityModifier
 		expected string
 	}{
 		{
@@ -41,10 +41,10 @@ func TestModifierString(t *testing.T) {
 	}
 }
 
-func TestModifierBase(t *testing.T) {
+func TestAbilityModifierBase(t *testing.T) {
 	tests := []struct {
 		base             int
-		expectedModifier Modifier
+		expectedModifier AbilityModifier
 	}{
 		{
 			base:             10,
@@ -109,7 +109,7 @@ func TestModifierBase(t *testing.T) {
 		t.Run(fmt.Sprintf("%dIs%d", test.base, test.expectedModifier), func(t *testing.T) {
 			s := newAbilityScore(Strength, test.base)
 
-			assert.Equal(t, test.expectedModifier, s.Modifier())
+			assert.Equal(t, test.expectedModifier, s.AbilityModifier())
 		})
 	}
 }

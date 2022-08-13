@@ -2,9 +2,9 @@ package stats
 
 import "fmt"
 
-type Modifier int
+type AbilityModifier int
 
-func (m Modifier) String() string {
+func (m AbilityModifier) String() string {
 	if m >= 0 {
 		return fmt.Sprintf("+%d", m)
 	}
