@@ -7,10 +7,44 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestModifierString(t *testing.T) {
+	tests := []struct {
+		modifier Modifier
+		expected string
+	}{
+		{
+			modifier: -5,
+			expected: "-5",
+		},
+		{
+			modifier: -1,
+			expected: "-1",
+		},
+		{
+			modifier: 0,
+			expected: "+0",
+		},
+		{
+			modifier: 1,
+			expected: "+1",
+		},
+		{
+			modifier: 3,
+			expected: "+3",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("%d", test.modifier), func(t *testing.T) {
+			assert.Equal(t, test.expected, test.modifier.String())
+		})
+	}
+}
+
 func TestModifierBase(t *testing.T) {
 	tests := []struct {
 		base             int
-		expectedModifier int
+		expectedModifier Modifier
 	}{
 		{
 			base:             10,

@@ -2,6 +2,16 @@ package stats
 
 import "fmt"
 
+type Modifier int
+
+func (m Modifier) String() string {
+	if m >= 0 {
+		return fmt.Sprintf("+%d", m)
+	}
+
+	return fmt.Sprintf("%d", m)
+}
+
 type Stat struct {
 	kind Kind
 	base int
@@ -27,7 +37,7 @@ func (s Stat) Base() int {
 	return s.base
 }
 
-func (s Stat) Modifier() int {
+func (s Stat) Modifier() Modifier {
 	var modifier int
 
 	if s.base >= 10 {
@@ -36,5 +46,5 @@ func (s Stat) Modifier() int {
 		modifier = (s.base - 11) / 2
 	}
 
-	return modifier
+	return Modifier(modifier)
 }
