@@ -18,10 +18,10 @@ func NewBlock(abilityScores AbilityScoreBlock, proficiencyBonus ProficiencyBonus
 	}
 }
 
-func (b *Block) AbilityScores() AbilityScoreBlock {
+func (b Block) AbilityScores() AbilityScoreBlock {
 	return b.abilityScores
 }
 
-func (b *Block) ProficiencyBonus() ProficiencyBonus {
+func (b Block) ProficiencyBonus() ProficiencyBonus {
 	return b.proficiencyBonus
 }
