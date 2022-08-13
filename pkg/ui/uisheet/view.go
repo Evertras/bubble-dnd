@@ -11,12 +11,13 @@ import (
 func viewStat(s stats.Stat) string {
 	boldStyle := lipgloss.NewStyle().Bold(true)
 
-	return styles.StyleStats[s.Kind()].Render(lipgloss.JoinVertical(
-		lipgloss.Center,
-		s.Kind().String(),
-		fmt.Sprintf("%d", s.Base()),
-		boldStyle.Render(s.Modifier().String()),
-	),
+	return styles.StyleStats[s.Kind()].Render(
+		lipgloss.JoinVertical(
+			lipgloss.Center,
+			s.Kind().String(),
+			fmt.Sprintf("%d", s.Base()),
+			boldStyle.Render(s.Modifier().String()),
+		),
 	)
 }
 
