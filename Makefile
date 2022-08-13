@@ -1,3 +1,7 @@
+.PHONY: sandbox
+sandbox:
+	@go run ./cmd/sandbox/*.go
+
 .PHONY: test
 test:
 	@go test ./...
