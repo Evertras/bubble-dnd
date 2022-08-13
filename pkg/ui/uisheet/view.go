@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	styleBoxed = lipgloss.NewStyle().Border(lipgloss.RoundedBorder()).Padding(0, 1)
+	styleBoxed      = lipgloss.NewStyle().Border(lipgloss.RoundedBorder()).Padding(0, 1)
 	styleUnderlined = lipgloss.NewStyle().Underline(true)
 )
 
