@@ -18,7 +18,7 @@ func viewStat(s stats.Stat) string {
 
 	return statStyle.Render(
 		lipgloss.JoinVertical(
-			lipgloss.Center,
+			0.49,
 			s.Kind().String(),
 			fmt.Sprintf("%d", s.Base()),
 			s.Modifier().String(),
