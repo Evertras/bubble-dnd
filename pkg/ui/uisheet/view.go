@@ -27,7 +27,7 @@ func viewAbilityScore(s stats.AbilityScore) string {
 }
 
 func (m Model) viewAbilityScoreBlock() string {
-	statsCol := m.data.AbilityScores()
+	statsCol := m.data.AbilityScoreBlock()
 
 	return lipgloss.JoinVertical(
 		lipgloss.Left,

@@ -13,7 +13,7 @@ func TestInitiativeTracksRoll(t *testing.T) {
 		expectedModifier = 2
 	)
 
-	creature := New('c', stats.BaseAbilityScores().WithDexterity(dexterityScore))
+	creature := New('c', stats.BaseAbilityScoreBlock().WithDexterity(dexterityScore))
 
 	roll := creature.RollInitiative()
 

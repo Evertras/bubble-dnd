@@ -4,10 +4,10 @@ import "github.com/evertras/bubble-dnd/pkg/stats"
 
 type Character struct {
 	name          string
-	abilityScores stats.AbilityScores
+	abilityScores stats.AbilityScoreBlock
 }
 
-func New(name string, statsCol stats.AbilityScores) Character {
+func New(name string, statsCol stats.AbilityScoreBlock) Character {
 	return Character{
 		name:          name,
 		abilityScores: statsCol,
@@ -18,6 +18,6 @@ func (c *Character) Name() string {
 	return c.name
 }
 
-func (c *Character) AbilityScores() stats.AbilityScores {
+func (c *Character) AbilityScoreBlock() stats.AbilityScoreBlock {
 	return c.abilityScores
 }
