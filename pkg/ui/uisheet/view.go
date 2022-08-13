@@ -8,8 +8,10 @@ import (
 	"github.com/evertras/bubble-dnd/pkg/styles"
 )
 
+var styleBoxed = lipgloss.NewStyle().Border(lipgloss.RoundedBorder()).Padding(0, 1)
+
 func viewStat(s stats.Stat) string {
-	statStyle := styles.StyleStats[s.Kind()].Copy().Border(lipgloss.RoundedBorder()).Padding(0, 1)
+	statStyle := styleBoxed.Copy().Inherit(styles.StyleStats[s.Kind()])
 
 	return statStyle.Render(
 		lipgloss.JoinVertical(
@@ -21,10 +23,10 @@ func viewStat(s stats.Stat) string {
 	)
 }
 
-func (m Model) View() string {
+func (m Model) viewStatBlock() string {
 	statsCol := m.data.Stats()
 
-	statBlock := lipgloss.JoinVertical(
+	return lipgloss.JoinVertical(
 		lipgloss.Left,
 		viewStat(statsCol.Strength()),
 		viewStat(statsCol.Dexterity()),
@@ -33,6 +35,25 @@ func (m Model) View() string {
 		viewStat(statsCol.Intelligence()),
 		viewStat(statsCol.Charisma()),
 	)
+}
 
-	return statBlock
+func (m Model) viewNameBlock() string {
+	block := lipgloss.JoinHorizontal(
+		lipgloss.Top,
+		styles.StyleSubtle.Render("Name: "),
+		m.data.Name(),
+	)
+
+	return styleBoxed.Render(block)
+}
+
+func (m Model) View() string {
+	nameBlock := m.viewNameBlock()
+	statBlock := m.viewStatBlock()
+
+	return lipgloss.JoinVertical(
+		lipgloss.Left,
+		nameBlock,
+		statBlock,
+	)
 }
