@@ -73,7 +73,7 @@ func TestModifierBase(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(fmt.Sprintf("%dIs%d", test.base, test.expectedModifier), func(t *testing.T) {
-			s := New(Strength, test.base)
+			s := newStat(Strength, test.base)
 
 			assert.Equal(t, test.expectedModifier, s.Modifier())
 		})
