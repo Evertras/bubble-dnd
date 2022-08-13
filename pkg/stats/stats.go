@@ -3,8 +3,8 @@ package stats
 import "fmt"
 
 type Stat struct {
-	kind     Kind
-	base     int
+	kind Kind
+	base int
 }
 
 func newStat(kind Kind, base int) Stat {
@@ -14,8 +14,8 @@ func newStat(kind Kind, base int) Stat {
 	}
 
 	return Stat{
-		kind:     kind,
-		base:     base,
+		kind: kind,
+		base: base,
 	}
 }
 
