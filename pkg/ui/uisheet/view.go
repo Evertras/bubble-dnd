@@ -9,14 +9,14 @@ import (
 )
 
 func viewStat(s stats.Stat) string {
-	boldStyle := lipgloss.NewStyle().Bold(true)
+	statStyle := styles.StyleStats[s.Kind()].Copy().Border(lipgloss.RoundedBorder()).Padding(0, 1)
 
-	return styles.StyleStats[s.Kind()].Render(
+	return statStyle.Render(
 		lipgloss.JoinVertical(
 			lipgloss.Center,
 			s.Kind().String(),
 			fmt.Sprintf("%d", s.Base()),
-			boldStyle.Render(s.Modifier().String()),
+			s.Modifier().String(),
 		),
 	)
 }
@@ -24,7 +24,7 @@ func viewStat(s stats.Stat) string {
 func (m Model) View() string {
 	statsCol := m.data.Stats()
 
-	return lipgloss.JoinVertical(
+	statBlock := lipgloss.JoinVertical(
 		lipgloss.Left,
 		viewStat(statsCol.Strength()),
 		viewStat(statsCol.Dexterity()),
@@ -33,4 +33,6 @@ func (m Model) View() string {
 		viewStat(statsCol.Intelligence()),
 		viewStat(statsCol.Charisma()),
 	)
+
+	return statBlock
 }
