@@ -52,7 +52,7 @@ func (m *Model) viewNameBlock() string {
 }
 
 func (m *Model) viewProficiencyBlock() string {
-	styleModifier := styleBoxed.Copy()
+	styleModifier := styleBoxed.Copy().Underline(true)
 	styleText := styles.StyleSubtle.Copy().MarginLeft(1)
 
 	block := lipgloss.JoinHorizontal(
