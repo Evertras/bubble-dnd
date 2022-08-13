@@ -6,14 +6,14 @@ import (
 )
 
 var (
-	StyleAbilityScores map[stats.Kind]lipgloss.Style
+	StyleAbilityScores map[stats.AbilityKind]lipgloss.Style
 
-	ColorAbilityScores map[stats.Kind]lipgloss.AdaptiveColor
+	ColorAbilityScores map[stats.AbilityKind]lipgloss.AdaptiveColor
 )
 
 func init() {
-	StyleAbilityScores = make(map[stats.Kind]lipgloss.Style)
-	ColorAbilityScores = make(map[stats.Kind]lipgloss.AdaptiveColor)
+	StyleAbilityScores = make(map[stats.AbilityKind]lipgloss.Style)
+	ColorAbilityScores = make(map[stats.AbilityKind]lipgloss.AdaptiveColor)
 
 	ColorAbilityScores[stats.Strength] = lipgloss.AdaptiveColor{
 		Light: "#330000",

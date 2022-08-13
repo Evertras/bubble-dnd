@@ -3,11 +3,11 @@ package stats
 import "fmt"
 
 type AbilityScore struct {
-	kind Kind
+	kind AbilityKind
 	base int
 }
 
-func newAbilityScore(kind Kind, base int) AbilityScore {
+func newAbilityScore(kind AbilityKind, base int) AbilityScore {
 	if kind < Strength || kind > Charisma {
 		// Should never happen, some code somewhere is being very bad so stop here
 		panic(fmt.Sprintf("stat kind %d is out of bounds", kind))
@@ -19,7 +19,7 @@ func newAbilityScore(kind Kind, base int) AbilityScore {
 	}
 }
 
-func (s AbilityScore) Kind() Kind {
+func (s AbilityScore) Kind() AbilityKind {
 	return s.kind
 }
 

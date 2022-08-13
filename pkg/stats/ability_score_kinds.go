@@ -2,10 +2,10 @@ package stats
 
 import "fmt"
 
-type Kind int
+type AbilityKind int
 
 const (
-	Strength Kind = iota
+	Strength AbilityKind = iota
 	Dexterity
 	Constitution
 	Wisdom
@@ -13,7 +13,7 @@ const (
 	Charisma
 )
 
-func (k Kind) String() string {
+func (k AbilityKind) String() string {
 	switch k {
 	case Strength:
 		return "STR"
