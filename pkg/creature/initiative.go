@@ -22,7 +22,7 @@ func (r *InitiativeResult) Roll() int {
 
 func (c *Creature) RollInitiative() InitiativeResult {
 	roll := dice.RollD20()
-	modifier := c.stats.Dexterity().Modifier()
+	modifier := int(c.stats.Dexterity().Modifier())
 
 	return InitiativeResult{
 		roll:     roll,

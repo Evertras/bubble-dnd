@@ -5,32 +5,31 @@ import (
 
 	"github.com/charmbracelet/lipgloss"
 	"github.com/evertras/bubble-dnd/pkg/stats"
+	"github.com/evertras/bubble-dnd/pkg/styles"
 )
 
+func viewStat(s stats.Stat) string {
+	boldStyle := lipgloss.NewStyle().Bold(true)
+
+	return styles.StyleStats[s.Kind()].Render(lipgloss.JoinVertical(
+		lipgloss.Center,
+		s.Kind().String(),
+		fmt.Sprintf("%d", s.Base()),
+		boldStyle.Render(s.Modifier().String()),
+	),
+	)
+}
+
 func (m Model) View() string {
-	statLine := func(s stats.Stat) string {
-		var modifierStr string
-
-		modifier := s.Modifier()
-
-		if modifier >= 0 {
-			modifierStr = fmt.Sprintf("+%d", modifier)
-		} else {
-			modifierStr = fmt.Sprintf("%d", modifier)
-		}
-
-		return fmt.Sprintf("%s: %d (%s)", s.Kind(), s.Base(), modifierStr)
-	}
-
 	statsCol := m.data.Stats()
 
 	return lipgloss.JoinVertical(
 		lipgloss.Left,
-		statLine(statsCol.Strength()),
-		statLine(statsCol.Dexterity()),
-		statLine(statsCol.Constitution()),
-		statLine(statsCol.Wisdom()),
-		statLine(statsCol.Intelligence()),
-		statLine(statsCol.Charisma()),
+		viewStat(statsCol.Strength()),
+		viewStat(statsCol.Dexterity()),
+		viewStat(statsCol.Constitution()),
+		viewStat(statsCol.Wisdom()),
+		viewStat(statsCol.Intelligence()),
+		viewStat(statsCol.Charisma()),
 	)
 }

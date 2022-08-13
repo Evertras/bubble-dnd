@@ -2,14 +2,14 @@ package uisheet
 
 import (
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/evertras/bubble-dnd/pkg/creature"
+	"github.com/evertras/bubble-dnd/pkg/character"
 )
 
 type Model struct {
-	data creature.Creature
+	data character.Character
 }
 
-func New(data creature.Creature) Model {
+func New(data character.Character) Model {
 	return Model{
 		data: data,
 	}

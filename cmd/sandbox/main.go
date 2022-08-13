@@ -6,7 +6,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/evertras/bubble-dnd/pkg/creature"
+	"github.com/evertras/bubble-dnd/pkg/character"
 	"github.com/evertras/bubble-dnd/pkg/stats"
 	"github.com/evertras/bubble-dnd/pkg/ui/uisheet"
 )
@@ -16,10 +16,10 @@ type Model struct {
 }
 
 func NewModel() Model {
-	fighter := creature.New('F', stats.NewCollection(16, 13, 14, 11, 8, 9))
-	//goblin := creature.New('G', stats.NewCollection(9, 13, 10, 10, 8, 7))
-
-	//sandboxWorld := world.New().WithCreatures([]creature.Creature{fighter, goblin})
+	fighter := character.New(
+		"Fighter McFightface",
+		stats.NewCollection(16, 13, 14, 11, 8, 9),
+	)
 
 	return Model{
 		sheet: uisheet.New(fighter),
