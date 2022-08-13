@@ -9,7 +9,7 @@ import (
 
 func TestNewCreaturesGetDifferentIDs(t *testing.T) {
 	makeCreature := func() Creature {
-		basicStats := stats.NewCollection(10, 10, 10, 10, 10, 10)
+		basicStats := stats.NewAbilityScores(10, 10, 10, 10, 10, 10)
 		return New('c', basicStats)
 	}
 

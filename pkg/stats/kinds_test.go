@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestStatStrings(t *testing.T) {
+func TestAbilityScoreStrings(t *testing.T) {
 	assert.Equal(t, "STR", Strength.String())
 	assert.Equal(t, "DEX", Dexterity.String())
 	assert.Equal(t, "CON", Constitution.String())

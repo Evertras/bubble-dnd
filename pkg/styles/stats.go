@@ -6,53 +6,53 @@ import (
 )
 
 var (
-	StyleStats map[stats.Kind]lipgloss.Style
+	StyleAbilityScores map[stats.Kind]lipgloss.Style
 
-	ColorStats map[stats.Kind]lipgloss.AdaptiveColor
+	ColorAbilityScores map[stats.Kind]lipgloss.AdaptiveColor
 )
 
 func init() {
-	StyleStats = make(map[stats.Kind]lipgloss.Style)
-	ColorStats = make(map[stats.Kind]lipgloss.AdaptiveColor)
+	StyleAbilityScores = make(map[stats.Kind]lipgloss.Style)
+	ColorAbilityScores = make(map[stats.Kind]lipgloss.AdaptiveColor)
 
-	ColorStats[stats.Strength] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Strength] = lipgloss.AdaptiveColor{
 		Light: "#330000",
 		Dark:  "#dd5555",
 	}
 
-	ColorStats[stats.Dexterity] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Dexterity] = lipgloss.AdaptiveColor{
 		Light: "#003300",
 		Dark:  "#55cc88",
 	}
 
-	ColorStats[stats.Constitution] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Constitution] = lipgloss.AdaptiveColor{
 		Light: "#000033",
 		Dark:  "#5577dd",
 	}
 
-	ColorStats[stats.Wisdom] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Wisdom] = lipgloss.AdaptiveColor{
 		Light: "#330033",
 		Dark:  "#aa88aa",
 	}
 
-	ColorStats[stats.Intelligence] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Intelligence] = lipgloss.AdaptiveColor{
 		Light: "#003333",
 		Dark:  "#66aaaa",
 	}
 
-	ColorStats[stats.Charisma] = lipgloss.AdaptiveColor{
+	ColorAbilityScores[stats.Charisma] = lipgloss.AdaptiveColor{
 		Light: "#333300",
 		Dark:  "#cccc88",
 	}
 
-	statStyle := func(color lipgloss.AdaptiveColor) lipgloss.Style {
+	abilityScoreStyle := func(color lipgloss.AdaptiveColor) lipgloss.Style {
 		return lipgloss.NewStyle().Foreground(color)
 	}
 
-	StyleStats[stats.Strength] = statStyle(ColorStats[stats.Strength])
-	StyleStats[stats.Dexterity] = statStyle(ColorStats[stats.Dexterity])
-	StyleStats[stats.Constitution] = statStyle(ColorStats[stats.Constitution])
-	StyleStats[stats.Wisdom] = statStyle(ColorStats[stats.Wisdom])
-	StyleStats[stats.Intelligence] = statStyle(ColorStats[stats.Intelligence])
-	StyleStats[stats.Charisma] = statStyle(ColorStats[stats.Charisma])
+	StyleAbilityScores[stats.Strength] = abilityScoreStyle(ColorAbilityScores[stats.Strength])
+	StyleAbilityScores[stats.Dexterity] = abilityScoreStyle(ColorAbilityScores[stats.Dexterity])
+	StyleAbilityScores[stats.Constitution] = abilityScoreStyle(ColorAbilityScores[stats.Constitution])
+	StyleAbilityScores[stats.Wisdom] = abilityScoreStyle(ColorAbilityScores[stats.Wisdom])
+	StyleAbilityScores[stats.Intelligence] = abilityScoreStyle(ColorAbilityScores[stats.Intelligence])
+	StyleAbilityScores[stats.Charisma] = abilityScoreStyle(ColorAbilityScores[stats.Charisma])
 }

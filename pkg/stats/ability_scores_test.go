@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCollectionTracksCorrectStats(t *testing.T) {
+func TestAbilityScoresTracksCorrectly(t *testing.T) {
 	expectedStrength := 9
 	expectedDexterity := 8
 	expectedConstitution := 13
@@ -14,7 +14,7 @@ func TestCollectionTracksCorrectStats(t *testing.T) {
 	expectedIntelligence := 14
 	expectedCharisma := 11
 
-	c := NewCollection(
+	c := NewAbilityScores(
 		expectedStrength,
 		expectedDexterity,
 		expectedConstitution,
@@ -23,7 +23,7 @@ func TestCollectionTracksCorrectStats(t *testing.T) {
 		expectedCharisma,
 	)
 
-	assertStats := func() {
+	assertAbilityScores := func() {
 		assert.Equal(t, expectedStrength, c.Strength().Base())
 		assert.Equal(t, expectedDexterity, c.Dexterity().Base())
 		assert.Equal(t, expectedConstitution, c.Constitution().Base())
@@ -39,29 +39,29 @@ func TestCollectionTracksCorrectStats(t *testing.T) {
 		assert.Equal(t, Charisma, c.Charisma().Kind())
 	}
 
-	assertStats()
+	assertAbilityScores()
 
 	expectedStrength = expectedStrength + 1
 	c = c.WithStrength(expectedStrength)
-	assertStats()
+	assertAbilityScores()
 
 	expectedDexterity = expectedDexterity + 1
 	c = c.WithDexterity(expectedDexterity)
-	assertStats()
+	assertAbilityScores()
 
 	expectedConstitution = expectedConstitution + 1
 	c = c.WithConstitution(expectedConstitution)
-	assertStats()
+	assertAbilityScores()
 
 	expectedWisdom = expectedWisdom + 1
 	c = c.WithWisdom(expectedWisdom)
-	assertStats()
+	assertAbilityScores()
 
 	expectedIntelligence = expectedIntelligence + 1
 	c = c.WithIntelligence(expectedIntelligence)
-	assertStats()
+	assertAbilityScores()
 
 	expectedCharisma = expectedCharisma + 1
 	c = c.WithCharisma(expectedCharisma)
-	assertStats()
+	assertAbilityScores()
 }

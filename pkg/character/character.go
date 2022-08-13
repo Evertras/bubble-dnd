@@ -3,14 +3,14 @@ package character
 import "github.com/evertras/bubble-dnd/pkg/stats"
 
 type Character struct {
-	name  string
-	stats stats.Collection
+	name          string
+	abilityScores stats.AbilityScores
 }
 
-func New(name string, statsCol stats.Collection) Character {
+func New(name string, statsCol stats.AbilityScores) Character {
 	return Character{
-		name:  name,
-		stats: statsCol,
+		name:          name,
+		abilityScores: statsCol,
 	}
 }
 
@@ -18,6 +18,6 @@ func (c *Character) Name() string {
 	return c.name
 }
 
-func (c *Character) Stats() stats.Collection {
-	return c.stats
+func (c *Character) AbilityScores() stats.AbilityScores {
+	return c.abilityScores
 }

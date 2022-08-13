@@ -2,32 +2,32 @@ package stats
 
 import "fmt"
 
-type Stat struct {
+type AbilityScore struct {
 	kind Kind
 	base int
 }
 
-func newStat(kind Kind, base int) Stat {
+func newAbilityScore(kind Kind, base int) AbilityScore {
 	if kind < Strength || kind > Charisma {
 		// Should never happen, some code somewhere is being very bad so stop here
 		panic(fmt.Sprintf("stat kind %d is out of bounds", kind))
 	}
 
-	return Stat{
+	return AbilityScore{
 		kind: kind,
 		base: base,
 	}
 }
 
-func (s Stat) Kind() Kind {
+func (s AbilityScore) Kind() Kind {
 	return s.kind
 }
 
-func (s Stat) Base() int {
+func (s AbilityScore) Base() int {
 	return s.base
 }
 
-func (s Stat) Modifier() Modifier {
+func (s AbilityScore) Modifier() Modifier {
 	var modifier int
 
 	if s.base >= 10 {

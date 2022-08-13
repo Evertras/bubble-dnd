@@ -13,8 +13,8 @@ var (
 	styleUnderlined = lipgloss.NewStyle().Underline(true)
 )
 
-func viewStat(s stats.Stat) string {
-	statStyle := styleBoxed.Copy().Inherit(styles.StyleStats[s.Kind()])
+func viewAbilityScore(s stats.AbilityScore) string {
+	statStyle := styleBoxed.Copy().Inherit(styles.StyleAbilityScores[s.Kind()])
 
 	return statStyle.Render(
 		lipgloss.JoinVertical(
@@ -26,17 +26,17 @@ func viewStat(s stats.Stat) string {
 	)
 }
 
-func (m Model) viewStatBlock() string {
-	statsCol := m.data.Stats()
+func (m Model) viewAbilityScoreBlock() string {
+	statsCol := m.data.AbilityScores()
 
 	return lipgloss.JoinVertical(
 		lipgloss.Left,
-		viewStat(statsCol.Strength()),
-		viewStat(statsCol.Dexterity()),
-		viewStat(statsCol.Constitution()),
-		viewStat(statsCol.Wisdom()),
-		viewStat(statsCol.Intelligence()),
-		viewStat(statsCol.Charisma()),
+		viewAbilityScore(statsCol.Strength()),
+		viewAbilityScore(statsCol.Dexterity()),
+		viewAbilityScore(statsCol.Constitution()),
+		viewAbilityScore(statsCol.Wisdom()),
+		viewAbilityScore(statsCol.Intelligence()),
+		viewAbilityScore(statsCol.Charisma()),
 	)
 }
 
@@ -52,7 +52,7 @@ func (m Model) viewNameBlock() string {
 
 func (m Model) View() string {
 	nameBlock := m.viewNameBlock()
-	statBlock := m.viewStatBlock()
+	statBlock := m.viewAbilityScoreBlock()
 
 	return lipgloss.JoinVertical(
 		lipgloss.Left,

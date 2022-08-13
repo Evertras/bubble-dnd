@@ -8,18 +8,12 @@ import (
 )
 
 func TestInitiativeTracksRoll(t *testing.T) {
-	const baseScore = 10
-	const dexterityScore = 14
-	const expectedModifier = 2
+	const (
+		dexterityScore   = 14
+		expectedModifier = 2
+	)
 
-	creature := New('c', stats.NewCollection(
-		baseScore,
-		dexterityScore,
-		baseScore,
-		baseScore,
-		baseScore,
-		baseScore,
-	))
+	creature := New('c', stats.BaseAbilityScores().WithDexterity(dexterityScore))
 
 	roll := creature.RollInitiative()
 
