@@ -16,9 +16,13 @@ type Model struct {
 }
 
 func NewModel() Model {
+	abilityBlock := stats.NewAbilityScoreBlock(16, 13, 14, 11, 8, 9)
+
+	statBlock := stats.NewBlock(abilityBlock, 2)
+
 	fighter := character.New(
 		"Fighter McFightface",
-		stats.NewAbilityScoreBlock(16, 13, 14, 11, 8, 9),
+		statBlock,
 	)
 
 	return Model{
